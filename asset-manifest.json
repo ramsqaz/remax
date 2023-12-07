@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/remax/static/css/main.34fff027.css",
+    "main.js": "/remax/static/js/main.377b5a08.js",
+    "static/media/background.png": "/remax/static/media/background.07591aa4705b55f97819.png",
+    "static/media/key-issue.jpeg": "/remax/static/media/key-issue.cfd3cdda915647dfd281.jpeg",
+    "static/media/education-3.jpeg": "/remax/static/media/education-3.f576f5d21e0de2069cca.jpeg",
+    "static/media/education-2.jpeg": "/remax/static/media/education-2.15d8cfdbbd8b26c9e758.jpeg",
+    "static/media/education-1.jpeg": "/remax/static/media/education-1.395e0d5d9ddff0522894.jpeg",
+    "static/media/i-connect.png": "/remax/static/media/i-connect.8704239085ab1e53920d.png",
+    "static/media/main-banner.jpeg": "/remax/static/media/main-banner.47423ac80a7c5729c350.jpeg",
+    "static/media/TTInterfaces-Bold.ttf": "/remax/static/media/TTInterfaces-Bold.fdc749f03dc91b7a725b.ttf",
+    "static/media/TTInterfaces-SemiBold.ttf": "/remax/static/media/TTInterfaces-SemiBold.7dd39a5aec8df2977804.ttf",
+    "static/media/TTInterfaces-Regular.ttf": "/remax/static/media/TTInterfaces-Regular.933ac25ba1f0ed75c2b0.ttf",
+    "static/media/TTInterfaces-ExtraBold.ttf": "/remax/static/media/TTInterfaces-ExtraBold.f3516ef80dd976d176bb.ttf",
+    "static/media/avatar.png": "/remax/static/media/avatar.f704d33d71a5df832630.png",
+    "index.html": "/remax/index.html",
+    "main.34fff027.css.map": "/remax/static/css/main.34fff027.css.map",
+    "main.377b5a08.js.map": "/remax/static/js/main.377b5a08.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.34fff027.css",
+    "static/js/main.377b5a08.js"
+  ]
+}
