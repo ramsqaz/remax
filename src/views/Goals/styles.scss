@@ -1,0 +1,30 @@
+@import "../../assets/styles/colors";
+
+.goals {
+    width: 100%;
+    padding: 130px 0;
+    background-color: $blue-500;
+
+    @media (max-width: 1240px) {
+        padding: 60px 0;
+    }
+
+    .image {
+        background-image: url("../../assets/images/key-issue.jpeg");
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .avatar-container {
+        position: relative;
+        width: 168px;
+        height: 168px;
+        margin: auto;
+
+        .flag {
+            position: absolute;
+            top: 0;
+            right: 5px;
+        }
+    }
+}

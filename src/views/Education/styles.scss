@@ -1,0 +1,25 @@
+@import "../../assets/styles/colors";
+
+#education {
+    width: 100%;
+    padding-top: 120px;
+    background-color: $gray-100;
+    
+    @media (max-width: 1240px) {
+        padding-top: 100px;
+    }
+
+    .card {
+        overflow: hidden;
+        border-radius: 16px;
+        display: flex;
+        flex-direction: column;
+        gap: 60px;
+        padding-bottom: 30px;
+        background-color: white;
+
+        img {
+            width: 100%;
+        }
+    }
+}

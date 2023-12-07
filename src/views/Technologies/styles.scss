@@ -1,0 +1,47 @@
+@import "../../assets/styles/colors";
+
+#technologies {
+    width: 100%;
+    padding-top: 120px;
+    background-color: $gray-100;
+    
+    @media (max-width: 1240px) {
+        padding-top: 100px;
+    }
+
+    ul.gray-900 {
+        color: $gray-900;
+    }
+
+    .iConnect {
+        background-image: url("../../assets/images/i-connect.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: top;
+        background-position-y: 450px;
+        
+        @media (max-width: 616px) {
+            background-position-y: 450px;
+        }
+
+        // @media (max-width: 1240px) {
+        //     background-position-y: 250px;
+        // }
+    }
+
+    .ref {
+        padding: 6px 16px;
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        cursor: pointer;
+        background-color: $red-500;
+        border-radius: 12px;
+        text-decoration: none;
+        
+        &:hover {
+            text-decoration: underline;
+            color: white;
+        }
+    }
+}

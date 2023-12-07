@@ -1,0 +1,12 @@
+header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: white;
+    z-index: 90;
+
+    a {
+        cursor: pointer;
+    }
+}

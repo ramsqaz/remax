@@ -1,0 +1,21 @@
+#about-company {
+    padding: 120px 0;
+    position: relative;
+
+    @media (max-width: 1240px) {
+        padding: 60px 20px 100px;
+    }
+
+    .bg-container {
+        z-index: -1;
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        margin: auto;
+        top: 70%;
+        
+        img {
+            width: 100%;
+        }
+    }
+}

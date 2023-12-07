@@ -1,0 +1,33 @@
+@import "../../assets/styles/colors";
+
+.text {
+    font-family: "TTInterfaces";
+    font-weight: 400;
+    color: $gray-900;
+    font-size: 18px;
+    line-height: 24px;
+
+    &.h1 {
+        font-size: 44px;
+        font-weight: 600;
+        line-height: 120%;
+        letter-spacing: -1.3px;
+        color: $black;
+    }
+    
+    &.h2 {
+        font-size: 20px;
+        font-weight: 700;
+        line-height: 24px;
+    }
+
+    &.gray-100 { color: $gray-100 }
+    &.gray-200 { color: $gray-200 }
+    &.gray-300 { color: $gray-300 }
+    &.gray-500 { color: $gray-500 }
+    &.red-500 { color: $red-500 }
+    &.red-900 { color: $red-900 }
+    &.blue-500 { color: $blue-500 }
+    &.white { color: white }
+    &.black { color: $black }
+}

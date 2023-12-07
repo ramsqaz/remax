@@ -1,0 +1,17 @@
+@import "../../assets/styles/colors";
+
+.request-form {
+    background-color: $gray-100;
+    width: 100%;
+    padding: 120px 0;
+    
+    @media (max-width: 1240px) {
+        padding: 100px 0;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+}

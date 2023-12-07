@@ -1,0 +1,10 @@
+@import "../../assets/styles/colors";
+
+.block {
+    background-color: white;
+    border-radius: 16px;
+
+    &.gray-100 { background-color: $gray-100 }
+    &.blue-500 { background-color: $blue-500 }
+    &.red-500 { background-color: $red-500 }
+}
