@@ -1,5 +1,5 @@
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useRef } from "react";
+import { motion, useScroll } from "framer-motion";
 
 import { CONTENTS } from "../../constants/app";
 import { FlexBox, Title, Text } from "../../components";
@@ -10,11 +10,17 @@ import useAdaptive from "../../hooks/useAdaptive";
 
 const AboutCompany = () => {
     const isMobile = useAdaptive();
+    const ref = useRef(null);
+    const { scrollYProgress } = useScroll({
+        target: ref,
+        offset: ["end end", "start start"],
+    });
 
     return (
-        <div id={CONTENTS.ABOUT_COMPANY}>
+        <div id={CONTENTS.ABOUT_COMPANY} ref={ref}>
             <motion.div
                 className="bg-container"
+                style={{ scale: scrollYProgress, y: scrollYProgress }}
             >
                 <img src={background} />
             </motion.div>
