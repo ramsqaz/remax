@@ -24,16 +24,6 @@ const App = () => {
             </Helmet>
             <Layout>
                 <Banner />
-                <Table data={[{ id: "1", xa: "Nurs" }, { id: "3", xa: "Bisen" }]}>
-                <Column>
-                  <HeaderCell>WS</HeaderCell>
-                  <Cell dataKey="id" />
-                </Column>
-                <Column>
-                  <HeaderCell>Opapapa</HeaderCell>
-                  <Cell dataKey="xa" />
-                </Column>
-              </Table>
                 <AboutCompany />
                 <Goals />
                 <Technologies />

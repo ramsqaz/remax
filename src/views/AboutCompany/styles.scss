@@ -18,4 +18,19 @@
             width: 100%;
         }
     }
+
+
+    @media (max-width: 576px) {
+        .bg-container {
+            top: unset;
+            bottom: -240px;
+        }
+    }
+
+    @media (max-width: 420px) {
+        .bg-container {
+            top: unset;
+            bottom: -200px;
+        }
+    }
 }
