@@ -39,3 +39,40 @@
     }
 
 }
+
+
+@media (max-width: 576px) {
+    #main {
+        height: 500px;
+
+        .banner {
+            .mobile-banner {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: calc(100% + 110px);
+                z-index: -1;
+                margin: 0;
+                border-radius: 0;
+                object-position: center;
+                margin-top: -110px;
+            }
+    
+            .flex-box {
+                height: 100%;
+                justify-content: space-between;
+                padding: 24px 0px 24px;
+    
+                .container {
+                    .text.h2.black {
+                        text-align: left !important;
+                        font-size: 24px;
+                        padding-right: 20px;
+                    }
+                }
+            }
+        }
+        
+    }
+}

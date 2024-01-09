@@ -15,7 +15,7 @@ export const SCROLL_NAVS = [
     },
     {
         content: CONTENTS.ABOUT_COMPANY,
-        label: "REMAX",
+        label: "RE/MAX",
     },
     {
         content: CONTENTS.TECHNOLOGIES,

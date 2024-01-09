@@ -12,10 +12,25 @@
         display: flex;
         justify-content: center;
         margin: auto;
-        top: 70%;
+        top: 0;
         
         img {
             width: 100%;
+        }
+    }
+
+
+    @media (max-width: 576px) {
+        .bg-container {
+            top: unset;
+            bottom: -240px;
+        }
+    }
+
+    @media (max-width: 420px) {
+        .bg-container {
+            top: unset;
+            bottom: -200px;
         }
     }
 }

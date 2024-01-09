@@ -11,7 +11,7 @@ import useAdaptive from "../../../hooks/useAdaptive";
 const Footer = () => {
     const isMobile = useAdaptive();
     const callToPhone = () => {
-        window.open("tel:+7 700 888 80 80", '_self');
+        window.open("tel:+7 707 558 88 85", '_self');
     };
 
     return (
@@ -30,7 +30,7 @@ const Footer = () => {
                                 startIcon={<PhoneIcon />}
                                 onClick={callToPhone}
                             >
-                                +7 700 888 80 80
+                                +7 707 558 88 85
                             </Button>
                         )}
                         <FlexBox width="100%" direction={isMobile ? "column" : "row"} align="center"  justify="center" gap={30}>
@@ -53,7 +53,7 @@ const Footer = () => {
                                 startIcon={<PhoneIcon />}
                                 onClick={callToPhone}
                             >
-                                +7 700 888 80 80
+                                +7 707 558 88 85
                             </Button>
                         )}
                     </FlexBox>

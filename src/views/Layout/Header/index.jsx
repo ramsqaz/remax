@@ -35,7 +35,7 @@ const Header = () => {
                         size="sm"
                         startIcon={<PhoneIcon />}
                     >
-                        +7 700 888 80 80
+                        +7 707 558 88 85
                     </Button>
                 </FlexBox>
             </Container>
