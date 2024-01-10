@@ -1,6 +1,7 @@
 #about-company {
     padding: 120px 0;
     position: relative;
+    overflow: hidden;
 
     @media (max-width: 1240px) {
         padding: 60px 20px 100px;
@@ -12,25 +13,12 @@
         display: flex;
         justify-content: center;
         margin: auto;
+        width: 100%;
+        left: 0;
         top: 0;
-        
+
         img {
             width: 100%;
-        }
-    }
-
-
-    @media (max-width: 576px) {
-        .bg-container {
-            top: unset;
-            bottom: -240px;
-        }
-    }
-
-    @media (max-width: 420px) {
-        .bg-container {
-            top: unset;
-            bottom: -200px;
         }
     }
 }

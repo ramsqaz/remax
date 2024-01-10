@@ -20,6 +20,10 @@ const CITIES_INFOS = [
         count: 2,
     },
     {
+        city: CITIES.KOSTANAY,
+        count: 1,
+    },
+    {
         city: CITIES.ASTANA,
         count: "Скоро",
     },
@@ -29,10 +33,6 @@ const CITIES_INFOS = [
     },
     {
         city: CITIES.ATYRAU,
-        count: "Скоро",
-    },
-    {
-        city: CITIES.KOSTANAY,
         count: "Скоро",
     },
 ];
@@ -1581,7 +1581,6 @@ const Offices = () => {
                                 CITIES.ASTANA,
                                 CITIES.SHYMKENT,
                                 CITIES.ATYRAU,
-                                CITIES.KOSTANAY,
                             ].includes(activeCity) && (
                                 <div className="alert-container">
                                     <div className="alert">

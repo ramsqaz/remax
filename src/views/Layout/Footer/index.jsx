@@ -1,7 +1,13 @@
 import React from "react";
 import { Link } from "react-scroll";
 
-import { Container, FlexBox, Text, Button } from "../../../components";
+import {
+    Container,
+    FlexBox,
+    Text,
+    Button,
+    ButtonTel,
+} from "../../../components";
 import { PhoneIcon, Remax } from "../../../assets/icons";
 import { SCROLL_NAVS } from "../../../constants/app";
 
@@ -11,29 +17,42 @@ import useAdaptive from "../../../hooks/useAdaptive";
 const Footer = () => {
     const isMobile = useAdaptive();
     const callToPhone = () => {
-        window.open("tel:+7 707 558 88 85", '_self');
+        window.open("tel:+7 707 558 88 85", "_self");
     };
 
     return (
         <footer>
             <Container>
                 <FlexBox direction="column" gap={isMobile ? 20 : 50}>
-                    <FlexBox align="center" direction={isMobile ? "column" : "row"} justify="space-between" gap={isMobile ? 30 : 50}>
+                    <FlexBox
+                        align="center"
+                        direction={isMobile ? "column" : "row"}
+                        justify="space-between"
+                        gap={isMobile ? 30 : 50}
+                    >
                         <FlexBox height={34} gap={5} direction="column">
                             <Remax />
-                            <Text size={11.6} weight={600} lh={1}>Казахстан</Text>
+                            <Text size={11.6} weight={600} lh={1}>
+                                Казахстан
+                            </Text>
                         </FlexBox>
                         {isMobile && (
-                            <Button
+                            <ButtonTel
                                 variant="secondary"
                                 size="sm"
                                 startIcon={<PhoneIcon />}
                                 onClick={callToPhone}
                             >
                                 +7 707 558 88 85
-                            </Button>
+                            </ButtonTel>
                         )}
-                        <FlexBox width="100%" direction={isMobile ? "column" : "row"} align="center"  justify="center" gap={30}>
+                        <FlexBox
+                            width="100%"
+                            direction={isMobile ? "column" : "row"}
+                            align="center"
+                            justify="center"
+                            gap={30}
+                        >
                             {SCROLL_NAVS.map(({ content, label }) => (
                                 <Link
                                     key={content}
@@ -47,22 +66,31 @@ const Footer = () => {
                             ))}
                         </FlexBox>
                         {!isMobile && (
-                            <Button
+                            <ButtonTel
                                 variant="secondary"
                                 size="sm"
                                 startIcon={<PhoneIcon />}
                                 onClick={callToPhone}
                             >
                                 +7 707 558 88 85
-                            </Button>
+                            </ButtonTel>
                         )}
                     </FlexBox>
                     <hr />
-                    <Text color="gray-300" centered={isMobile} size={12} lh="16px" mb={isMobile ? 0 : 20}>©2023, RE/MAX Казахстан. Все права защищены</Text>
+                    <Text
+                        color="gray-300"
+                        centered={isMobile}
+                        size={12}
+                        lh="16px"
+                        mb={isMobile ? 0 : 20}
+                    >
+                        ©2023, RE/MAX Казахстан. Все права защищены. Частная
+                        компания NEU Ltd.
+                    </Text>
                 </FlexBox>
             </Container>
         </footer>
-    )
+    );
 };
 
 export default Footer;

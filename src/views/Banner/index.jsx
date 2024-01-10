@@ -15,38 +15,57 @@ const Banner = () => {
     return (
         <div id={CONTENTS.MAIN}>
             <div className="banner">
-                {isMobile
-                    ? (
-                        <FlexBox direction="column" gap={20}>
-                            <Container>
-                                <Text withAnimation as={isMobile ? "h2" : "h1"} color="black" centered={isMobile}>Откройте агентство недвижимости с мировой франшизой</Text>
-                            </Container>
-                            <img className="mobile-banner" src={mainBanner} />
-                            <Container>
-                                <Link to={CONTENTS.REQUEST} smooth offset={-80} spy>
-                                    <Button
-                                        color="red"
-                                        variant="primary"
-                                        fullWidth={isMobile}
-                                    >
-                                        Оставить заявку
-                                    </Button>
-                                </Link>
-                            </Container>
+                {isMobile ? (
+                    <FlexBox direction="column" gap={20}>
+                        <Container>
+                            <Text
+                                withAnimation
+                                as={isMobile ? "h2" : "h1"}
+                                color="black"
+                                centered={isMobile}
+                            >
+                                Запустите прибыльное агентство недвижимости с
+                                мировой франшизой
+                            </Text>
+                        </Container>
+                        <img className="mobile-banner" src={mainBanner} />
+                        <Container>
+                            <Link to={CONTENTS.REQUEST} smooth offset={-80} spy>
+                                <Button
+                                    color="red"
+                                    variant="primary"
+                                    fullWidth={isMobile}
+                                >
+                                    Оставить заявку
+                                </Button>
+                            </Link>
+                        </Container>
+                    </FlexBox>
+                ) : (
+                    <>
+                        <img className="desktop-banner" src={mainBanner} />
+                        <FlexBox
+                            className="content"
+                            direction="column"
+                            gap={30}
+                            width={680}
+                            height="100%"
+                            mx={66}
+                            align="flex-start"
+                            justify="center"
+                        >
+                            <Text as="h1" color="white">
+                                Откройте агентство недвижимости с мировой
+                                франшизой
+                            </Text>
+                            <Link to={CONTENTS.REQUEST} smooth offset={-80} spy>
+                                <Button color="red" variant="primary">
+                                    Оставить заявку
+                                </Button>
+                            </Link>
                         </FlexBox>
-                    )
-                    : (
-                        <>
-                            <img className="desktop-banner" src={mainBanner} />
-                            <FlexBox className="content" direction="column" gap={30} width={680} height="100%" mx={66} align="flex-start" justify="center">
-                                <Text as="h1">Откройте агентство недвижимости с мировой франшизой</Text>
-                                <Link to={CONTENTS.REQUEST} smooth offset={-80} spy>
-                                    <Button color="red" variant="primary">Оставить заявку</Button>
-                                </Link>
-                            </FlexBox>
-                        </>
-                    )
-                }
+                    </>
+                )}
             </div>
         </div>
     );
