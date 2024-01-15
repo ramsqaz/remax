@@ -7,6 +7,7 @@ import { Remax, PhoneIcon } from "../../../assets/icons";
 import { FlexBox, Text, ButtonTel } from "../../../components";
 
 import "./styles.scss";
+import { useLocation, useNavigate, useParams } from "react-router";
 
 const CrossIcon = () => (
     <svg
@@ -45,8 +46,10 @@ const FriesIcon = () => (
 );
 
 const MobileHeader = () => {
+    const { pathname } = useLocation();
     const [isNavbarShown, setIsNavbarShown] = useState(false);
     const [scrollPosition, setScrollPosition] = useState(0);
+    const navigate = useNavigate();
 
     const toggleNavbarShown = () => {
         setIsNavbarShown((prev) => !prev);
@@ -66,7 +69,7 @@ const MobileHeader = () => {
     }, []);
 
     const handleScrollStyle = {
-        background: scrollPosition > 550 ? "#ffffff" : "transparent",
+        background: (scrollPosition > 550) || (pathname !== "/") ? "#ffffff" : "transparent",
     };
 
     return (
@@ -147,7 +150,10 @@ const MobileHeader = () => {
                                             <Link
                                                 to={content}
                                                 offset={-80}
-                                                onClick={toggleNavbarShown}
+                                                onClick={() => {
+                                                    navigate("/");
+                                                    toggleNavbarShown();
+                                                }}
                                                 spy
                                                 smooth
                                             >

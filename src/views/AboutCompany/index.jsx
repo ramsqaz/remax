@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { motion, useScroll } from "framer-motion";
+import { motion, useScroll, useSpring } from "framer-motion";
 
 import { CONTENTS } from "../../constants/app";
 import { FlexBox, Title, Text } from "../../components";
@@ -14,13 +14,15 @@ const AboutCompany = () => {
     const { scrollYProgress } = useScroll({
         target: ref,
         offset: ["end end", "start start"],
+        
     });
+    const scale = useSpring(scrollYProgress, { stiffness: 1000, damping: 100 });
 
     return (
         <div id={CONTENTS.ABOUT_COMPANY} ref={ref}>
             <motion.div
                 className="bg-container"
-                style={{ scale: scrollYProgress, y: scrollYProgress }}
+                style={{ scale: scale, y: scale, marginTop: -(window.innerWidth / (isMobile ? 30 : 3)) }}
             >
                 <img src={background} />
             </motion.div>

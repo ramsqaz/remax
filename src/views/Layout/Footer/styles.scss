@@ -17,5 +17,11 @@ footer {
 
     a {
         cursor: pointer;
+        text-decoration: none;
+        color: $gray-300;
+        
+        &:hover {
+            text-decoration: underline;
+        }
     }
 }

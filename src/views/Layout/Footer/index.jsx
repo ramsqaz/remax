@@ -1,5 +1,7 @@
 import React from "react";
-import { Link } from "react-scroll";
+import { useNavigate } from "react-router";
+import { Link as ScrollLink } from "react-scroll";
+import { Link as RouteLink } from "react-router-dom";
 
 import {
     Container,
@@ -15,6 +17,7 @@ import "./styles.scss";
 import useAdaptive from "../../../hooks/useAdaptive";
 
 const Footer = () => {
+    const navigate = useNavigate();
     const isMobile = useAdaptive();
     const callToPhone = () => {
         window.open("tel:+7 707 558 88 85", "_self");
@@ -54,15 +57,16 @@ const Footer = () => {
                             gap={30}
                         >
                             {SCROLL_NAVS.map(({ content, label }) => (
-                                <Link
+                                <ScrollLink
                                     key={content}
                                     to={content}
                                     spy
                                     offset={-80}
                                     smooth
+                                    onClick={() => navigate("/")}
                                 >
                                     <Text color="gray-300">{label}</Text>
-                                </Link>
+                                </ScrollLink>
                             ))}
                         </FlexBox>
                         {!isMobile && (
@@ -77,16 +81,31 @@ const Footer = () => {
                         )}
                     </FlexBox>
                     <hr />
-                    <Text
-                        color="gray-300"
-                        centered={isMobile}
-                        size={12}
-                        lh="16px"
-                        mb={isMobile ? 0 : 20}
-                    >
-                        ©2023, RE/MAX Казахстан. Все права защищены. Частная
-                        компания NEU Ltd.
-                    </Text>
+                    <FlexBox gap={20} justify="space-between" align="center" direction={isMobile ? "column" : "row"}>
+                        <Text
+                            color="gray-300"
+                            centered={isMobile}
+                            size={12}
+                            lh="16px"
+                            mb={isMobile ? 0 : 20}
+                        >
+                            ©2023, RE/MAX Казахстан. Все права защищены. Частная
+                            компания NEU Ltd.
+                        </Text>
+                        <hr style={{ height: "100%", width: 1 }} />
+                        <RouteLink to="/privacy-policy">
+                            <Text
+                                style={{ textDecoration: "none" }}
+                                color="gray-300"
+                                centered={isMobile}
+                                size={12}
+                                lh="16px"
+                                mb={isMobile ? 0 : 20}
+                            >
+                                Политика конфиденциальности
+                            </Text>
+                        </RouteLink>
+                    </FlexBox>
                 </FlexBox>
             </Container>
         </footer>

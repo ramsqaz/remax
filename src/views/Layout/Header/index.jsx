@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-scroll";
+import { useNavigate } from "react-router";
 
 import {
     Container,
@@ -14,6 +15,7 @@ import { SCROLL_NAVS } from "../../../constants/app";
 import "./styles.scss";
 
 const Header = () => {
+    const navigate = useNavigate();
     return (
         <header>
             <Container>
@@ -42,6 +44,7 @@ const Header = () => {
                                 spy
                                 offset={-80}
                                 smooth
+                                onClick={() => navigate("/")}
                             >
                                 <Text>{label}</Text>
                             </Link>

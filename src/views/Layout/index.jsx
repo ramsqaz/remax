@@ -10,7 +10,7 @@ const Layout = ({ children }) => {
     return (
         <>
             {isMobile ? <MobileHeader /> : <Header />}
-            <main style={{ width: "100%", marginTop: isMobile ? 110 : 80 }}>
+            <main style={{ width: "100%", marginTop: 80 }}>
                 {children}
             </main>
             <Footer />
