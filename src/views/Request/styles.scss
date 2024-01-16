@@ -59,6 +59,15 @@
         animation: rotation .7s linear infinite;
     }
 
+    .link {
+        color: white;
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
     .checkmark__circle {
         stroke-dasharray: 166;
         stroke-dashoffset: 166;

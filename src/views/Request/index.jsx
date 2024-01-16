@@ -14,6 +14,7 @@ import {
 } from "../../components";
 
 import "./styles.scss";
+import { Link } from "react-router-dom";
 
 const getStatusIndicator = (status) => {
     switch (status) {
@@ -161,7 +162,13 @@ const Request = () => {
                                     <Checkbox
                                         onChange={setAccepted}
                                         value={accepted}
-                                        label="Нажимая кнопку 'Отправить', Вы подтверждаете свое согласие с нашей политикой конфиденциальности."
+                                        label={(
+                                            <span>
+                                                Нажимая кнопку 'Отправить', Вы подтверждаете свое согласие с нашей
+                                                {" "}
+                                                <Link to="/privacy-policy" className="link">политикой конфиденциальности.</Link>
+                                            </span>
+                                        )}
                                     />
                                 </FlexBox>
                             </form>
