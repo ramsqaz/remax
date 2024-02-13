@@ -11,26 +11,48 @@ export const CONTENTS = {
 export const SCROLL_NAVS = [
     {
         content: CONTENTS.MAIN,
-        label: "Главная",
+        // label: "Главная",
+        key: "main",
     },
     {
         content: CONTENTS.ABOUT_COMPANY,
-        label: "RE/MAX",
+        // label: "RE/MAX",
+        key: "remax",
     },
     {
         content: CONTENTS.TECHNOLOGIES,
-        label: "Технологии",
+        // label: "Технологии",
+        key: "technologies",
     },
     {
         content: CONTENTS.ADVANTAGES,
-        label: "Преимущества",
+        // label: "Преимущества",
+        key: "advantages",
     },
     {
         content: CONTENTS.EDUCATION,
-        label: "Обучение",
+        // label: "Обучение",
+        key: "education",
     },
     {
         content: CONTENTS.OFFICES,
-        label: "Офисы",
+        // label: "Офисы",
+        key: "offices",
+    },
+];
+
+export const LOCALES = {
+    RU: "ru",
+    KZ: "kz",
+};
+
+export const LOCALES_OPTIONS = [
+    {
+        value: LOCALES.KZ,
+        label: "Қазақша",
+    },
+    {
+        value: LOCALES.RU,
+        label: "Русский",
     },
 ];

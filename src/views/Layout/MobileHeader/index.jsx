@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-scroll";
 import { motion, AnimatePresence } from "framer-motion";
+import { useLocation, useNavigate, useParams } from "react-router";
 
-import { CONTENTS, SCROLL_NAVS } from "../../../constants/app";
+import { CONTENTS, LOCALES_OPTIONS, SCROLL_NAVS } from "../../../constants/app";
 import { Remax, PhoneIcon } from "../../../assets/icons";
 import { FlexBox, Text, ButtonTel } from "../../../components";
 
 import "./styles.scss";
-import { useLocation, useNavigate, useParams } from "react-router";
+import useTranslate from "../../../i18n/useTranslate";
+import LocaleSelector from "../LocaleSelector";
+import useNavScroll from "../../../hooks/useNavScroll";
+import { NavLink } from "react-router-dom";
 
 const CrossIcon = () => (
     <svg
@@ -47,9 +50,12 @@ const FriesIcon = () => (
 
 const MobileHeader = () => {
     const { pathname } = useLocation();
+    const { nav } = useTranslate();
     const [isNavbarShown, setIsNavbarShown] = useState(false);
     const [scrollPosition, setScrollPosition] = useState(0);
+    const { locale } = useParams();
     const navigate = useNavigate();
+    useNavScroll();
 
     const toggleNavbarShown = () => {
         setIsNavbarShown((prev) => !prev);
@@ -72,6 +78,18 @@ const MobileHeader = () => {
         background: (scrollPosition > 550) || (pathname !== "/") ? "#ffffff" : "transparent",
     };
 
+    // const handleClick = (id) => {
+    //     if (pathname === ("/" + locale)) {
+    //         scrollTo(id);
+    //     } else {
+    //         navigate("/" + locale);
+    //         const timeoutId = setTimeout(() => {
+    //             scrollTo(id);
+    //             clearTimeout(timeoutId);
+    //         }, 500);
+    //     }
+    // };
+
     return (
         <>
             <header
@@ -79,19 +97,16 @@ const MobileHeader = () => {
                 style={{ height: 80, ...handleScrollStyle }}
             >
                 <div className="mobile_header">
-                    <Link
+                    <a
                         className="go_back_btn"
-                        to={CONTENTS.MAIN}
-                        offset={-80}
-                        smooth
                     >
                         <FlexBox height={34} gap={5} direction="column">
                             <Remax />
-                            <Text size={11.6} weight={600} uppperCase lh={1}>
+                            <Text size={11.6} weight={600} uppperCase lh={1} color="blue-500">
                                 Казахстан
                             </Text>
                         </FlexBox>
-                    </Link>
+                    </a>
                     {SCROLL_NAVS && (
                         <button
                             className="menu_btn"
@@ -132,7 +147,7 @@ const MobileHeader = () => {
                                 onClick={(e) => e.stopPropagation()}
                             >
                                 {SCROLL_NAVS.map(
-                                    ({ content, label }, index) => (
+                                    ({ content, key }, index) => (
                                         <motion.li
                                             key={content}
                                             initial={{ y: 30, opacity: 0 }}
@@ -147,15 +162,9 @@ const MobileHeader = () => {
                                             exit={{ y: 30, opacity: 0 }}
                                             custom={index + 1}
                                         >
-                                            <Link
-                                                to={content}
-                                                offset={-80}
-                                                onClick={() => {
-                                                    navigate("/");
-                                                    toggleNavbarShown();
-                                                }}
-                                                spy
-                                                smooth
+                                            <NavLink
+                                                to={`/${locale}?section=${content}`}
+                                                onClick={toggleNavbarShown}
                                             >
                                                 <Text
                                                     centered
@@ -163,9 +172,9 @@ const MobileHeader = () => {
                                                     size={20}
                                                     lh={1.2}
                                                 >
-                                                    {label}
+                                                    {nav[key]}
                                                 </Text>
-                                            </Link>
+                                            </NavLink>
                                         </motion.li>
                                     )
                                 )}
@@ -175,11 +184,26 @@ const MobileHeader = () => {
                                         y: 0,
                                         opacity: 1,
                                         transition: {
-                                            delay: 6 * 0.1 + 0.2,
+                                            delay: 8 * 0.1 + 0.2,
                                             bounce: 0.2,
                                         },
                                     })}
                                     exit={{ y: 30, opacity: 0 }}
+                                >
+                                    <LocaleSelector />
+                                </motion.div>
+                                <motion.div
+                                    initial={{ y: 30, opacity: 0 }}
+                                    animate={(custom) => ({
+                                        y: 0,
+                                        opacity: 1,
+                                        transition: {
+                                            delay: 9 * 0.1 + 0.2,
+                                            bounce: 0.2,
+                                        },
+                                    })}
+                                    exit={{ y: 30, opacity: 0 }}
+                                    style={{ marginTop: 15 }}
                                 >
                                     <ButtonTel
                                         variant="secondary"

@@ -2,17 +2,20 @@ import React from "react";
 
 import { CONTENTS } from "../../constants/app";
 import { Block, Container, FlexBox, Text, Title } from "../../components";
+import useAdaptive from "../../hooks/useAdaptive";
+import useTranslate from "../../i18n/useTranslate";
 
 import "./styles.scss";
-import useAdaptive from "../../hooks/useAdaptive";
 
 const Technologies = () => {
     const isMobile = useAdaptive();
+    const { technologies } = useTranslate();
+
     return (
-        <div id={CONTENTS.TECHNOLOGIES}>
+        <div id={CONTENTS.TECHNOLOGIES} style={{ scrollMarginTop: 80 }}>
             <Container>
                 <Title justify={isMobile ? "center" : "normal"} mb={30}>
-                    Технологии
+                    {technologies.title}
                 </Title>
                 <Text
                     withAnimation
@@ -21,7 +24,7 @@ const Technologies = () => {
                     centered={isMobile}
                     mb={isMobile ? 30 : 60}
                 >
-                    Технологии RE/MAX для быстрого старта и стремительного роста
+                    {technologies.h1}
                 </Text>
                 <FlexBox gap={20} direction={isMobile ? "column" : "row"}>
                     <FlexBox direction="column" gap={20}>
@@ -40,11 +43,11 @@ const Technologies = () => {
                                         as={isMobile ? "h2" : "h1"}
                                         color="black"
                                     >
-                                        RE/MAX в Казахстане
+                                        {technologies.top_left.h1}
                                     </Text>
                                     <a
                                         className="ref"
-                                        href="https://www.remax.com"
+                                        href="https://www.remax.com.kz"
                                     >
                                         <svg
                                             xmlns="http://www.w3.org/2000/svg"
@@ -66,9 +69,7 @@ const Technologies = () => {
                                     </a>
                                 </FlexBox>
                                 <Text>
-                                    Сайт с возможностью покупки, продажи, аренды
-                                    жилой и коммерческой недвижимости в
-                                    Казахстане и во всем мире.
+                                    {technologies.top_left.p}
                                 </Text>
                             </FlexBox>
                         </Block>
@@ -83,25 +84,22 @@ const Technologies = () => {
                                 color="white"
                                 mb={20}
                             >
-                                MAX Center - международный ресурс с
-                                инструментами для эффективной работы агентов и
-                                брокеров:
+                                {technologies.bottom_left.h1}
                             </Text>
                             <ul style={{ color: "white" }}>
                                 <li>
                                     <Text color="white">
-                                        RE/MAX Университет
+                                        {technologies.bottom_left.li1}
                                     </Text>
                                 </li>
                                 <li>
                                     <Text color="white">
-                                        Маркетинговый портал рекламных
-                                        материалов
+                                        {technologies.bottom_left.li2}
                                     </Text>
                                 </li>
                                 <li>
                                     <Text color="white">
-                                        Полезные инструменты и средства
+                                        {technologies.bottom_left.li3}
                                     </Text>
                                 </li>
                             </ul>
@@ -172,38 +170,36 @@ const Technologies = () => {
                             mb={20}
                             mt={40}
                         >
-                            CRM - система iConnect
+                            {technologies.right.h1}
                         </Text>
-                        <ul className="gray-900" style={{ marginBottom: 200 }}>
+                        <ul className="gray-900">
                             <li>
                                 <Text>
-                                    Основной инструмент работы агента и брокера.
+                                    {technologies.right.li1}
                                 </Text>
                             </li>
                             <li>
                                 <Text>
-                                    Разработана под нужды агентства недвижимости
-                                    RE/MAX
+                                    {technologies.right.li2}
                                 </Text>
                             </li>
                             <li>
                                 <Text>
-                                    Ведение базы недвижимости, клиентов и
-                                    контактов
+                                    {technologies.right.li3}
                                 </Text>
                             </li>
                             <li>
                                 <Text>
-                                    Автоматический подбор недвижимости для
-                                    клиентов
+                                    {technologies.right.li4}
                                 </Text>
                             </li>
                             <li>
                                 <Text>
-                                    Онлайн-версия и мобильное приложение
+                                    {technologies.right.li5}
                                 </Text>
                             </li>
                         </ul>
+                        <div className="bg-img" />
                     </Block>
                 </FlexBox>
             </Container>

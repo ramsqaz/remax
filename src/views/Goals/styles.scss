@@ -27,4 +27,54 @@
             right: 5px;
         }
     }
+
+    .with-tooltip {
+        position: relative;
+        cursor: pointer;
+        
+        .tooltip {
+            width: 400px;
+            position: absolute;
+            right: -90%;
+            top: -20%;
+            opacity: 0;
+            border-radius: 16px;
+            background: rgba(11, 15, 22, 0.85);
+            backdrop-filter: blur(10px);
+            color: white;
+            padding: 40px;
+            pointer-events: none;
+            transform: translateX(15px);
+            transition: .6s;
+
+            @media (max-width: 1024px) {
+                width: 100%;
+                left: 0;
+                right: auto;
+                top: 0;
+
+                transform: translateX(0);
+                scale: 0.5;
+            }
+            
+            .triangle {
+                position: absolute;
+                top: 50%;
+                right: 100%;
+            }
+
+            .focus {
+                background-color: $red-500;
+                margin: 10px -10px;
+                padding: 5px 10px;
+                border-radius: 10px;
+            }
+        }
+
+        &:hover .tooltip {
+            opacity: 1;
+            transform: translateX(0);
+            scale: 1;
+        }
+    }
 }

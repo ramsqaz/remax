@@ -14,19 +14,25 @@
     }
 
     .iConnect {
-        background-image: url("../../assets/images/i-connect.png");
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: top;
-        background-position-y: 450px;
-        
-        @media (max-width: 616px) {
-            background-position-y: 450px;
+        overflow: hidden;
+        .bg-img {
+            background-image: url("../../assets/images/i-connect.png");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: top;
+            margin: 0 -60px;
+            width: calc(100% + 120px);
+            height: 100%;
+            min-height: 200px;
+            pointer-events: none;
+            
+            @media (max-width: 1024px) {
+                margin: 0 -30px;
+                width: calc(100% + 60px);
+                scale: 2;
+                transform-origin: top;
+            }
         }
-
-        // @media (max-width: 1240px) {
-        //     background-position-y: 250px;
-        // }
     }
 
     .ref {

@@ -1,19 +1,22 @@
 import React from "react";
-import { Link } from "react-scroll";
 
 import { CONTENTS } from "../../constants/app";
 import useAdaptive from "../../hooks/useAdaptive";
 import { Button, Container, FlexBox, Text } from "../../components";
 
 import mainBanner from "../../assets/images/main-banner.jpg";
+import useTranslate from "../../i18n/useTranslate";
 
 import "./styles.scss";
+import useNavScroll from "../../hooks/useNavScroll";
 
 const Banner = () => {
     const isMobile = useAdaptive();
+    const { banner } = useTranslate();
+    const { scrollTo } = useNavScroll();
 
     return (
-        <div id={CONTENTS.MAIN}>
+        <div id={CONTENTS.MAIN} style={{ scrollMarginTop: 80 }}>
             <div className="banner">
                 {isMobile ? (
                     <FlexBox direction="column" gap={20}>
@@ -24,21 +27,19 @@ const Banner = () => {
                                 color="black"
                                 centered={isMobile}
                             >
-                                Запустите прибыльное агентство недвижимости с
-                                мировой франшизой
+                                {banner.h1}
                             </Text>
                         </Container>
                         <img className="mobile-banner" src={mainBanner} />
                         <Container>
-                            <Link to={CONTENTS.REQUEST} smooth offset={-80} spy>
-                                <Button
-                                    color="red"
-                                    variant="primary"
-                                    fullWidth={isMobile}
-                                >
-                                    Оставить заявку
-                                </Button>
-                            </Link>
+                            <Button
+                                color="red"
+                                variant="primary"
+                                fullWidth={isMobile}
+                                onClick={() => scrollTo(CONTENTS.REQUEST)}
+                            >
+                                {banner.btn}
+                            </Button>
                         </Container>
                     </FlexBox>
                 ) : (
@@ -55,14 +56,11 @@ const Banner = () => {
                             justify="center"
                         >
                             <Text as="h1" color="white">
-                                Откройте агентство недвижимости с мировой
-                                франшизой
+                                {banner.h1}
                             </Text>
-                            <Link to={CONTENTS.REQUEST} smooth offset={-80} spy>
-                                <Button color="red" variant="primary">
-                                    Оставить заявку
-                                </Button>
-                            </Link>
+                            <Button color="red" variant="primary" onClick={() => scrollTo(CONTENTS.REQUEST)}>
+                                {banner.btn}
+                            </Button>
                         </FlexBox>
                     </>
                 )}

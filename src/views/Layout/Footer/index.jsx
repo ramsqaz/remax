@@ -1,7 +1,7 @@
 import React from "react";
-import { useNavigate } from "react-router";
+import { useLocation, useNavigate, useParams } from "react-router";
 import { Link as ScrollLink } from "react-scroll";
-import { Link as RouteLink } from "react-router-dom";
+import { Link, Link as RouteLink } from "react-router-dom";
 
 import {
     Container,
@@ -15,13 +15,19 @@ import { SCROLL_NAVS } from "../../../constants/app";
 
 import "./styles.scss";
 import useAdaptive from "../../../hooks/useAdaptive";
+import useTranslate from "../../../i18n/useTranslate";
+import useNavScroll from "../../../hooks/useNavScroll";
 
 const Footer = () => {
     const navigate = useNavigate();
     const isMobile = useAdaptive();
+    const { pathname } = useLocation();
+    const { locale } = useParams();
+    const { footer, nav } = useTranslate();
     const callToPhone = () => {
         window.open("tel:+7 707 558 88 85", "_self");
     };
+    const { scrollTo } = useNavScroll();
 
     return (
         <footer>
@@ -56,17 +62,13 @@ const Footer = () => {
                             justify="center"
                             gap={30}
                         >
-                            {SCROLL_NAVS.map(({ content, label }) => (
-                                <ScrollLink
+                            {SCROLL_NAVS.map(({ content, key }) => (
+                                <Link
                                     key={content}
-                                    to={content}
-                                    spy
-                                    offset={-80}
-                                    smooth
-                                    onClick={() => navigate("/")}
+                                    to={`/${locale}?section=${content}`}
                                 >
-                                    <Text color="gray-300">{label}</Text>
-                                </ScrollLink>
+                                    <Text color="gray-300">{nav[key]}</Text>
+                                </Link>
                             ))}
                         </FlexBox>
                         {!isMobile && (
@@ -89,11 +91,10 @@ const Footer = () => {
                             lh="16px"
                             mb={isMobile ? 0 : 20}
                         >
-                            ©2023, RE/MAX Казахстан. Все права защищены. Частная
-                            компания NEU Ltd.
+                            {footer.company}
                         </Text>
                         <hr style={{ height: "100%", width: 1 }} />
-                        <RouteLink to="/privacy-policy">
+                        <RouteLink to="privacy-policy">
                             <Text
                                 style={{ textDecoration: "none" }}
                                 color="gray-300"
@@ -102,7 +103,7 @@ const Footer = () => {
                                 lh="16px"
                                 mb={isMobile ? 0 : 20}
                             >
-                                Политика конфиденциальности
+                                {footer.privacy_policy}
                             </Text>
                         </RouteLink>
                     </FlexBox>

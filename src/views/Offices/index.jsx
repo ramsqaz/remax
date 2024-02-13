@@ -5,6 +5,7 @@ import useAdaptive from "../../hooks/useAdaptive";
 import { Block, Container, FlexBox, Text } from "../../components";
 
 import "./styles.scss";
+import useTranslate from "../../i18n/useTranslate";
 
 const CITIES = {
     ALMATY: "Алматы",
@@ -14,35 +15,37 @@ const CITIES = {
     KOSTANAY: "Костанай",
 };
 
-const CITIES_INFOS = [
-    {
-        city: CITIES.ALMATY,
-        count: 2,
-    },
-    {
-        city: CITIES.KOSTANAY,
-        count: 1,
-    },
-    {
-        city: CITIES.ASTANA,
-        count: "Скоро",
-    },
-    {
-        city: CITIES.SHYMKENT,
-        count: "Скоро",
-    },
-    {
-        city: CITIES.ATYRAU,
-        count: "Скоро",
-    },
-];
-
 const Offices = () => {
     const [activeCity, setActiveCity] = useState(CITIES.ALMATY);
     const isMobile = useAdaptive();
+    const { offices } = useTranslate();
+
+    
+    const CITIES_INFOS = [
+      {
+          city: CITIES.ALMATY,
+          count: 2,
+      },
+      {
+          city: CITIES.KOSTANAY,
+          count: 1,
+      },
+      {
+          city: CITIES.ASTANA,
+          count: offices.soon,
+      },
+      {
+          city: CITIES.SHYMKENT,
+          count: offices.soon,
+      },
+      {
+          city: CITIES.ATYRAU,
+          count: offices.soon,
+      },
+    ];
 
     return (
-        <div id={CONTENTS.OFFICES}>
+        <div id={CONTENTS.OFFICES} style={{ scrollMarginTop: 80 }}>
             <Container>
                 <Block p={isMobile ? 30 : 80}>
                     <FlexBox
@@ -60,9 +63,9 @@ const Offices = () => {
                                 as={isMobile ? "h2" : "h1"}
                                 color="black"
                             >
-                                Города присутствия
+                                {offices.h1}
                             </Text>
-                            <Text>Сеть RE/MAX расширяется в Казахстане.</Text>
+                            <Text>{offices.p}</Text>
                             <FlexBox direction="column" gap={10}>
                                 {CITIES_INFOS.map(({ city, count }) => (
                                     <Block
@@ -111,7 +114,7 @@ const Offices = () => {
 
                         <div className="map">
                             <svg
-                                width={isMobile ? "100%" : "606"}
+                                width="100%"
                                 height={isMobile ? "" : "321"}
                                 viewBox="0 0 606 321"
                                 fill="none"
@@ -1590,7 +1593,7 @@ const Offices = () => {
                                             size={isMobile ? 12 : 18}
                                             weight={600}
                                         >
-                                            Станьте первым в своем городе!
+                                            {offices.be_first}
                                         </Text>
                                     </div>
                                 </div>

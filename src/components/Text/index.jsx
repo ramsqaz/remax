@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 import "./styles.scss";
 
-const Text = ({ as: Element = "div", withSlash = false, children, as, color = "gray-900", size, lh, ls, align, weight, style, withAnimation = false, uppperCase = false, centered = false, width, mb, mt, ...props }) => withAnimation
+const Text = ({ as: Element = "div", withSlash = false, children, as, color = "gray-900", size, lh, ls, align, weight, style, withAnimation = false, uppperCase = false, centered = false, width, mb, mt, className, ...props }) => withAnimation
 ? (
     <motion.div
         className={classNames("text", as, color)}
@@ -30,7 +30,7 @@ const Text = ({ as: Element = "div", withSlash = false, children, as, color = "g
 )
 : (
     <div
-        className={classNames("text", as, color)}
+        className={classNames("text", as, color, className)}
         style={{
             width,
             fontSize: size,

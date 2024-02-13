@@ -8,76 +8,78 @@ import education3 from "../../assets/images/education-3.jpeg";
 
 import "./styles.scss";
 import useAdaptive from "../../hooks/useAdaptive";
+import useTranslate from "../../i18n/useTranslate";
 
 const Education = () => {
     const isMobile = useAdaptive();
+    const { education } = useTranslate();
 
     return (
         <div id={CONTENTS.EDUCATION}>
             <Container>
                 <FlexBox direction="column" gap={30} align="center">
-                    <Title>Обучение</Title>
-                    <Text withAnimation width={isMobile ? "100%" : "50%"} centered as={isMobile ? "h2" : "h1"} color="black" mb={20}>Обучение RE/MAX - это обмен опытом и синергия всей сети</Text>
+                    <Title>{education.title}</Title>
+                    <Text withAnimation width={isMobile ? "100%" : "50%"} centered as={isMobile ? "h2" : "h1"} color="black" mb={20}>{education.h1}</Text>
                     <Grid columns={isMobile ? 1 : 3}>
                         <div className="card">
                             <img src={education1} />
                             <FlexBox direction="column" gap={20} mx={40}>
-                                <Text size={36} lh={1.2} ls={-1.08}>Брокер</Text>
+                                <Text size={36} lh={1.2} ls={-1.08}>{education.card1.h1}</Text>
                                 <FlexBox align="center" gap={30}>
                                     <Text as="h2" color="gray-200">01</Text>
-                                    <Text>Руководство по открытию и управлению офисом</Text>
+                                    <Text>{education.card1.li1}</Text>
                                 </FlexBox>
                                 <FlexBox align="center" gap={30}>
                                     <Text as="h2" color="gray-200">02</Text>
-                                    <Text>Рекрутинг и содержание агентов</Text>
+                                    <Text>{education.card1.li2}</Text>
                                 </FlexBox>
                                 <FlexBox align="center" gap={30}>
                                     <Text as="h2" color="gray-200">03</Text>
-                                    <Text>Инструменты RE/MAX</Text>
+                                    <Text>{education.card1.li3}</Text>
                                 </FlexBox>
                                 <FlexBox align="center" gap={30}>
                                     <Text as="h2" color="gray-200">04</Text>
-                                    <Text>Процедуры, отчетность, особенности сотрудничества</Text>
+                                    <Text>{education.card1.li4}</Text>
                                 </FlexBox>
                             </FlexBox>
                         </div>
                         <div className="card">
                             <img src={education2} />
                             <FlexBox direction="column" gap={20} mx={40}>
-                                <Text size={36} lh={1.2} ls={-1.08}>Агент</Text>
+                                <Text size={36} lh={1.2} ls={-1.08}>{education.card2.h1}</Text>
                                 <FlexBox align="center" gap={30}>
                                     <Text as="h2" color="gray-200">01</Text>
-                                    <Text>Все аспекты ведения риэлторского бизнеса</Text>
+                                    <Text>{education.card2.li1}</Text>
                                 </FlexBox>
                                 <FlexBox align="center" gap={30}>
                                     <Text as="h2" color="gray-200">02</Text>
-                                    <Text>Групповое и индивидуальное обучение в офисе и online</Text>
+                                    <Text>{education.card2.li2}</Text>
                                 </FlexBox>
                                 <FlexBox align="center" gap={30}>
                                     <Text as="h2" color="gray-200">03</Text>
-                                    <Text>Методические материалы для использования</Text>
+                                    <Text>{education.card2.li3}</Text>
                                 </FlexBox>
                                 <FlexBox align="center" gap={30}>
                                     <Text as="h2" color="gray-200">04</Text>
-                                    <Text>Участие в конференциях RE/MAX и риелторов Казахстана</Text>
+                                    <Text>{education.card2.li4}</Text>
                                 </FlexBox>
                             </FlexBox>
                         </div>
                         <div className="card">
                             <img src={education3} />
                             <FlexBox direction="column" gap={20} mx={40}>
-                                <Text size={36} lh={1.2} ls={-1.08}>Университет</Text>
+                                <Text size={36} lh={1.2} ls={-1.08}>{education.card3.h1}</Text>
                                 <FlexBox align="center" gap={30}>
                                     <Text as="h2" color="gray-200">01</Text>
-                                    <Text>Ресурс для самостоятельного развития и роста профессионализма агентов и брокеров</Text>
+                                    <Text>{education.card3.li1}</Text>
                                 </FlexBox>
                                 <FlexBox align="center" gap={30}>
                                     <Text as="h2" color="gray-200">02</Text>
-                                    <Text>Доступ к курсам и программам обучения online</Text>
+                                    <Text>{education.card3.li2}</Text>
                                 </FlexBox>
                                 <FlexBox align="center" gap={30}>
                                     <Text as="h2" color="gray-200">03</Text>
-                                    <Text>1000 видео, охватывающих все аспекты рынка недвижимости</Text>
+                                    <Text>{education.card3.li3}</Text>
                                 </FlexBox>
                             </FlexBox>
                         </div>

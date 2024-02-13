@@ -1,29 +1,39 @@
 import React from "react";
 
-import { Container, Title, Text, FlexBox, Grid, Block } from "../../components";
-import avatar from "../../assets/images/avatar.png";
 import flag from "../../assets/images/flag.png";
+import useAdaptive from "../../hooks/useAdaptive";
+import avatar from "../../assets/images/avatar.png";
+import { Container, Title, Text, FlexBox, Grid, Block } from "../../components";
 
 import "./styles.scss";
-import useAdaptive from "../../hooks/useAdaptive";
+import useTranslate from "../../i18n/useTranslate";
+
+const REMAX = "RE/MAX (недвижимость)";
+const TOP_15_FRANCHISES = [
+    "McDonald's", "Subway", "KFC (Kentucky Fried Chicken)", "7-Eleven", "UPS Store", "Pizza Hut",
+    REMAX,
+    "Hilton Hotels & Resorts", "GNC Live Well (продукты здоровья)", "Dunkin' (Dunkin' Donuts)", "The UPS Store", "Jani-King (услуги по уборке)", "Taco Bell", "Circle K", "Snap-on Tools",
+];
 
 const Goals = () => {
-    const isMobile = useAdaptive() 
+    const isMobile = useAdaptive();
+    const { goals } = useTranslate();
+
     return (
         <div className="goals">
             <Container>
                 <FlexBox direction="column" gap={isMobile ? 30 : 50}>
                     <FlexBox direction="column" gap={20}>
-                        <Title iconColor="red-500" textColor="white">Миссия и цель</Title>
-                        <Text withAnimation as={isMobile ? "h2" : "h1"} color="white">RE/MAX Сегодня</Text>
+                        <Title iconColor="red-500" textColor="white">{goals.title}</Title>
+                        <Text withAnimation as={isMobile ? "h2" : "h1"} color="white">{goals.h1}</Text>
                     </FlexBox>
                     <FlexBox direction="column" gap={20}>
                         <Grid columns={isMobile ? 1 : 3} gap={20}>
                             <FlexBox direction="column" gap={20}>
                                 <Block p={isMobile ? 30 : 40} height={186}>
                                     <FlexBox direction="column" gap={10}>
-                                        <Text weight={600}>Наша цель</Text>
-                                        <Text>Быть лидером рынка недвижимости в Казахстане и лучшим выбором для брокеров, агентов и клиентов</Text>
+                                        <Text weight={600}>{goals.top_left.h1}</Text>
+                                        <Text>{goals.top_left.p}</Text>
                                     </FlexBox>
                                 </Block>
                                 <Block p={isMobile ? 20 : "32px 71px"} height={238}>
@@ -76,9 +86,9 @@ const Goals = () => {
                                     </FlexBox>
                                 </Block>
                             </FlexBox>
-                            <Block p={isMobile ? 30 : 40} color="red-500">
+                            <Block className="with-tooltip" p={isMobile ? 30 : 40} color="red-500">
                                 <FlexBox height="100%" direction="column" align="center" justify="space-between" gap={30}>
-                                    <Text centered color="white" weight={600}>RE/MAX входит в Топ-15 лучших франчайзи по всему миру</Text>
+                                    <Text centered color="white" weight={600}>{goals.top_center.h1}</Text>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="273" height="220" viewBox="0 0 273 220" fill="none">
                                         <path d="M43.3076 66.6197L43.3076 151.831H89.7087L89.7087 0H43.3076V12.3944C43.3076 20.6573 39.1831 24.7887 30.934 24.7887H0V66.6197H43.3076Z" fill="white"/>
                                         <path d="M135.127 202.338C150.182 214.113 168.536 220 190.19 220C216.174 220 236.281 212.873 250.511 198.62C264.947 184.16 272.165 165.981 272.165 144.085C272.165 121.981 265.359 104.113 251.748 90.4789C238.137 76.6385 220.711 69.7183 199.47 69.7183C182.766 69.7183 169.361 73.3333 159.256 80.5634H157.709L162.349 40.2817H259.791V0H123.682L111.308 123.944H156.162C163.793 112.582 174.62 106.901 188.643 106.901C200.398 106.901 209.472 110.413 215.865 117.437C222.464 124.254 225.764 132.62 225.764 142.535C225.764 153.69 222.567 162.469 216.174 168.873C209.988 175.07 200.81 178.169 188.643 178.169C179.569 178.169 172.042 175.793 166.061 171.042C160.081 166.085 156.265 159.681 154.616 151.831H108.215C111.308 173.728 120.279 190.563 135.127 202.338Z" fill="white"/>
@@ -87,13 +97,36 @@ const Goals = () => {
                                         <path d="M89.5876 179.616H63.7141V210.487H71.6077V186.672H81.694V210.487H89.5876V179.616Z" fill="white"/>
                                     </svg>
                                 </FlexBox>
+                                <div className="tooltip">
+                                    <svg className="triangle" xmlns="http://www.w3.org/2000/svg" width="18" height="40" viewBox="0 0 18 40" fill="none">
+                                        <g filter="url(#filter0_b_662_204)">
+                                            <path d="M1.53553 23.5355C-0.417091 21.5829 -0.417088 18.4171 1.53553 16.4645L18 0V40L1.53553 23.5355Z" fill="#0B0F16" fill-opacity="0.85"/>
+                                        </g>
+                                        <defs>
+                                            <filter id="filter0_b_662_204" x="-19.9287" y="-20" width="57.9287" height="80" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                                            <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                                            <feGaussianBlur in="BackgroundImageFix" stdDeviation="10"/>
+                                            <feComposite in2="SourceAlpha" operator="in" result="effect1_backgroundBlur_662_204"/>
+                                            <feBlend mode="normal" in="SourceGraphic" in2="effect1_backgroundBlur_662_204" result="shape"/>
+                                            </filter>
+                                        </defs>
+                                    </svg>
+                                    <Text color="white" weight={700} lh={1.12} size={32} mb={20}>{goals.top_center.popup.h1}</Text>
+                                    <FlexBox direction="column">
+                                        {TOP_15_FRANCHISES.map((franchise, index) => (
+                                            <Text key={franchise} className={franchise === REMAX ? "focus h3" : "h3"} color="white" weight={400}>
+                                                {`${index + 1}. ${franchise}`}
+                                            </Text>
+                                        ))}
+                                    </FlexBox>
+                                </div>
                             </Block>
                             <FlexBox direction="column" gap={20}>
                                 <Block className="image" height={238}></Block>
                                 <Block height={186} p={isMobile ? 30 : 40}>
                                     <FlexBox direction="column" gap={10}>
-                                        <Text weight={600}>Наша миссия</Text>
-                                        <Text>Повысить качество риэлторских услуг путем внедрения бизнес-модели RE/MAX.</Text>
+                                        <Text weight={600}>{goals.mid_right.h1}</Text>
+                                        <Text>{goals.mid_right.p}</Text>
                                     </FlexBox>
                                 </Block>
                             </FlexBox>
@@ -101,19 +134,19 @@ const Goals = () => {
                         <Grid columns={isMobile ? 1 : 4} gap={20}>
                             <Block p={isMobile ? 30 : 40}>
                                 <Text size={64} ls={-1.3} lh={1} weight={300}>50</Text>
-                                <Text>лет опыта</Text>
+                                <Text>{goals.bottom.p1}</Text>
                             </Block>
                             <Block p={isMobile ? 30 : 40}>
                                 <Text size={64} ls={-1.3} lh={1} weight={300}>9 000+</Text>
-                                <Text>офисов</Text>
+                                <Text>{goals.bottom.p2}</Text>
                             </Block>
                             <Block p={isMobile ? 30 : 40}>
                                 <Text size={64} ls={-1.3} lh={1} weight={300}>120</Text>
-                                <Text>стран мира</Text>
+                                <Text>{goals.bottom.p3}</Text>
                             </Block>
                             <Block p={isMobile ? 30 : "40px 10px 40px 40px"}>
                                 <Text size={64} ls={-1.3} lh={1} weight={300}>140 000</Text>
-                                <Text>брокеров</Text>
+                                <Text>{goals.bottom.p4}</Text>
                             </Block>
                         </Grid>
                     </FlexBox>
